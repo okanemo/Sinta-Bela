@@ -12,7 +12,7 @@ const items = [
   {
     key: '2',
     title: 'Take it easy and simple',
-    content: "Obviously I didn't make this myself. Thanks to stackoverflow, google, youtube, and friends for helping me understanding and developing this website easier",
+    content: "Obviously I didn't make this myself. Thanks to stackoverflow, google, youtube, and friends for helping me understand and develop this website easier",
   },
 
 ]

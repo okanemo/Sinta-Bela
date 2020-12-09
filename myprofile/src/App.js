@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// import Recaptcha from 'react-recaptcha';
 import 'antd/dist/antd.css';
 
 import AppHeader from './components/common/header';
