@@ -1,9 +1,45 @@
 import React from 'react';
 
 import { Form, Input, Button, Checkbox } from 'antd';
+import Recaptcha from 'react-recaptcha';
 const { TextArea } = Input;
 
-function AppContact() {
+
+  class AppContact extends React.Component {
+    constructor(props){
+      super(props)
+
+      this.state={
+        isVerified: false
+      }
+      this.handleSubmit= this.handleSubmit.bind(this);
+      this.recaptchaLoaded= this.recaptchaLoaded.bind(this)
+      this.verifyCallback= this.verifyCallback.bind(this)
+    }
+
+    handleSubmit(){
+      if(this.state.isVerified){
+        alert('You have successfully submit!');
+      } else{
+        alert('Please verify that you are a human!');
+      }
+    }
+
+    recaptchaLoaded(){
+      console.log('capcha successfully loaded');
+    }
+
+    verifyCallback(response){
+      if(response){
+        this.setState({
+          isVerified:true
+        })
+      }
+    }
+
+    
+
+    render(){
   return (
     <div id="contact" className="block contactBlock">
       <div className="container-fluid">
@@ -69,14 +105,25 @@ function AppContact() {
             </Form.Item>
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            <Button type="primary" onClick={this.handleSubmit} className="login-form-button">
               Submit
             </Button>
+            
           </Form.Item>
+         
+            <Recaptcha
+              sitekey="6Ld2IQEaAAAAACefDJVSPiMPhkpYHOlhMdYk7z6J"
+              render="explicit" 
+              onloadCallback={this.recaptchaLoaded}
+              verifyCallback={this.verifyCallback}
+            />
         </Form>
+
       </div>
     </div>  
   );
 }
+  }
+
 
 export default AppContact;
