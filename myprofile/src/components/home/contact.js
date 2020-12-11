@@ -19,7 +19,7 @@ const { TextArea } = Input;
 
     handleSubmit(){
       if(this.state.isVerified){
-        alert('You have successfully submit!');
+        alert('You have successfully submitted!');
       } else{
         alert('Please verify that you are a human!');
       }
@@ -91,18 +91,6 @@ const { TextArea } = Input;
               name="message"
             >
               <TextArea placeholder="Message" />
-            </Form.Item>
-            <Form.Item>
-              <Form.Item 
-                name="remember" 
-                valuePropName="checked"
-                noStyle
-                rules={[
-                  { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
-                ]}
-              >
-                <Checkbox>I agree with terms and conditions.</Checkbox>
-              </Form.Item>
             </Form.Item>
             <Form.Item>
               <Button type="primary" onClick={this.handleSubmit} className="login-form-button">
