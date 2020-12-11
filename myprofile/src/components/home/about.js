@@ -28,7 +28,7 @@ const items = [
 
 function AppAbout() {
   return (
-    <div id="about" className="block aboutBlock">
+    <div  data-testid="about" id="about" className="block aboutBlock">
       <div className="container-fluid">
         <div className="titleHolder">
           <br></br>
